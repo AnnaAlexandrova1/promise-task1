@@ -1,6 +1,4 @@
-import './js/Character';
-import './js/Daemon';
-import './js/Force';
-import './js/Majician';
+import './js/ArrayBufferConverter';
+
 
 // TODO: write your code in app.js

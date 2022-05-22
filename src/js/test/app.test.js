@@ -1,18 +1,19 @@
-
 import GameSavingLoader from '../GameSavingLoader';
 
 test('Должна создавать объект типа GameSaving', (done) => {
-  GameSavingLoader.load().then((saving) => expect(JSON.parse(saving)).toEqual({
+  const expected = JSON.stringify({
     id: 9,
     created: 1546300800,
     userInfo: {
-      id: 1, name: 'Hitman', level: 10, points: 2000,
+      id: 1,
+      name: 'Hitman',
+      level: 10,
+      points: 2000,
     },
-  }));
-  done();
-});
+  });
 
-test('Если promise будет выполнен с ошибкой', () => {
-  expect.assertions(1);
-  return GameSavingLoader.load().catch((e) => expect(e).toMatch('error'));
+  GameSavingLoader.load().then((saving) => {
+    expect(saving).toEqual(expected);
+    done();
+  });
 });

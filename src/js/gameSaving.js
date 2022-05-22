@@ -1,11 +1,12 @@
 export default class GameSaving {
-  constructor(id, created, userId, name, level, points) {
-    this.id = id;
-    this.created = created;
-    this.userInfo = {};
-    this.userInfo.id = userId;
-    this.userInfo.name = name;
-    this.userInfo.level = level;
-    this.userInfo.points = points;
+  constructor(data) {
+    this.id = data.id;
+    this.created = data.created;
+    this.userInfo = {
+      id: data.userInfo.id,
+      name: data.userInfo.name,
+      level: data.userInfo.level,
+      points: data.userInfo.points,
+    };
   }
 }
